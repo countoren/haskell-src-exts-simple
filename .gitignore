@@ -1,0 +1,8 @@
+/dist/
+/haskell-src-exts/
+/.cabal-sandbox/
+/cabal.sandbox.config
+/tools/Gen
+/tools/Gen.hi
+/tools/Gen.o
+/result
