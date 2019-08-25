@@ -1,13 +1,12 @@
-let
-  pkgs = import ./nixpkgs.nix {};
-in
-  pkgs.haskellPackages.callPackage ./project.nix {
-    haskell-src-exts = import (pkgs.fetchFromGitHub {
+{ pkgs ? import ./nixpkgs.nix {}, compiler ? "ghc864" }:
+pkgs.haskell.packages.${compiler}.callPackage ./project.nix {
+    haskell-src-exts =
+      import (pkgs.fetchFromGitHub {
                      owner="countoren";
                      repo="haskell-src-exts";
-                     rev="c3464f21bae77a6b5e620ca172d056dbb0d298dd";
-                     sha256="09mdssksa15n8rkvis1s69mim12lhl7c4s2hg7cs5j4z3bbhr5vw";
-    });
+                     rev="45f6f3400c02b9d58d6ec7cc267384bcb4f5947f";
+                     sha256="1jrg73gq1mss9qvvcg4zqjhqqldpd939z6r40zp5fzsk330piscl";
+      }) { inherit compiler; };
   }
 
   
