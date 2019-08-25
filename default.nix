@@ -1,4 +1,4 @@
-{ pkgs ? import ./nixpkgs.nix {}, compiler ? "ghc864" }:
+{ pkgs ? import ./nixpkgs.nix {}, compiler ? "ghc865" }:
 pkgs.haskell.packages.${compiler}.callPackage ./project.nix {
     haskell-src-exts =
       import (pkgs.fetchFromGitHub {
